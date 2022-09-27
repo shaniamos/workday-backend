@@ -11,34 +11,34 @@ function setupSocketAPI(http) {
     })
     gIo.on('connection', socket => {
         logger.info(`New connected socket [id: ${socket.id}]`)
-        // console.log('socket:', socket.id);
-        
+
         socket.on('disconnect', socket => {
             logger.info(`Socket disconnected [id: ${socket.id}]`)
         })
-        socket.on('chat-set-topic', topic => {
-            // love / politic
-            if (socket.myTopic === topic) return
-            if (socket.myTopic) {
-                socket.leave(socket.myTopic)
-                logger.info(`Socket is leaving topic ${socket.myTopic} [id: ${socket.id}]`)
+        socket.on('board-set-id', boardId => {
+            logger.info(`Socket is setting boardId ${boardId}`)
+            if (socket.myBoardId === boardId) return
+            if (socket.myBoardId) {
+                socket.leave(socket.myBoardId)
+                logger.info(`Socket is leaving topic ${socket.myBoardId} [id: ${socket.id}]`)
             }
-            socket.join(topic)
-            // love
-            socket.myTopic = topic
+            socket.join(boardId)
+            logger.info(`Socket is join topic ${boardId} [id: ${socket.id}]`)
+            socket.myBoardId = boardId
         })
-        socket.on('chat-send-msg', msg => {
-            logger.info(`New chat msg from socket [id: ${socket.id}], emitting to topic ${socket.myTopic}`)
+        socket.on('board-send-change', board => {
+            logger.info(`New changes to board [title: ${board.title}] from socket [id: ${socket.id}], emitting to boardId ${socket.myBoardId}`)
             // emits to all sockets:
             // gIo.emit('chat addMsg', msg)
             // emits only to sockets in the same room
             // popo
-            gIo.to(socket.myTopic).emit('chat-add-msg', msg)
+            gIo.to(socket.myBoardId).emit('board-add-change', board)
         })
-        socket.on('user-watch', userId => {
-            logger.info(`user-watch from socket [id: ${socket.id}], on user ${userId}`)
-            socket.join('watching:' + userId)
-
+        socket.on('boards-send-change', boards => {
+            logger.info(`New updates to boards from socket [id: ${socket.id}], emitting to all users`)
+            // emits to all sockets:
+            gIo.emit('boards-add-change', boards) // emits only to sockets in the same room
+            // gIo.to(socket.myBoardId).emit('board-add-change', board)
         })
         socket.on('set-user-socket', userId => {
             logger.info(`Setting socket.userId = ${userId} for socket [id: ${socket.id}]`)

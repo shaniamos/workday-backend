@@ -5,7 +5,6 @@ const utilService = require('../../services/util.service')
 
 async function query(filterBy) {
     try {
-        console.log(filterBy)
         const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection('board')
         var boards = await collection.find(criteria).toArray()
@@ -20,12 +19,10 @@ async function query(filterBy) {
 function _buildCriteria(filterBy) {
     const criteria = {}
     if (filterBy.txt) {
-        console.log(filterBy.txt)
         const txtCriteria = { $regex: filterBy.txt, $options: 'i' }
         criteria.title = txtCriteria
         criteria.title = txtCriteria
     }
-    console.log(criteria)
     return criteria
 }
 
