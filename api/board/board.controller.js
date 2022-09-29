@@ -11,7 +11,7 @@ async function getBoards(req, res) {
     // const boards = await boardService.query(queryParams)
     const filterBy = (req.query) ? req.query : null
     const boards = await boardService.query(filterBy)
-    res.json(boards)
+    res.send(boards)
   } catch (err) {
     logger.error('Failed to get boards', err)
     res.status(500).send({ err: 'Failed to get boards' })
@@ -24,7 +24,7 @@ async function getBoardById(req, res) {
     logger.debug('Getting Boards by id:', req.params.id)
     const boardId = req.params.id
     const board = await boardService.getById(boardId)
-    res.json(board)
+    res.send(board)
   } catch (err) {
     logger.error('Failed to get board', err)
     res.status(500).send({ err: 'Failed to get board' })
@@ -37,19 +37,19 @@ async function addBoard(req, res) {
     logger.debug('Adding board')
     const board = req.body
     const addedBoard = await boardService.add(board)
-    res.json(addedBoard)
+    res.send(addedBoard)
   } catch (err) {
     logger.error('Failed to add board', err)
     res.status(500).send({ err: 'Failed to add board' })
   }
 }
 
-// PUT (Update board)
+// PUT (update board)
 async function updateBoard(req, res) {
   try {
     const board = req.body;
     const updatedBoard = await boardService.update(board)
-    res.json(updatedBoard)
+    res.send(updatedBoard)
   } catch (err) {
     logger.error('Failed to update board', err)
     res.status(500).send({ err: 'Failed to update board' })
@@ -57,14 +57,13 @@ async function updateBoard(req, res) {
   }
 }
 
-// DELETE (Remove board)
+// DELETE (remove board)
 async function removeBoard(req, res) {
   try {
     logger.debug('Removing board by id:', req.params.id)
     const boardId = req.params.id;
     const removedId = await boardService.remove(boardId)
     res.send(removedId)
-    // res.json(removedId) //??
   } catch (err) {
     logger.error('Failed to remove board', err)
     res.status(500).send({ err: 'Failed to remove board' })
