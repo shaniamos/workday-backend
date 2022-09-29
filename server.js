@@ -26,10 +26,10 @@ const userRoutes = require('./api/user/user.routes')
 const boardRoutes = require('./api/board/board.routes')
 const { setupSocketAPI } = require('./services/socket.service')
 
-// routes
 const setupAsyncLocalStorage = require('./middlewares/setupAls.middleware')
 app.all('*', setupAsyncLocalStorage)
 
+// routes
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/board', boardRoutes)
@@ -45,8 +45,8 @@ app.get('/**', (req, res) => {
 
 
 const logger = require('./services/logger.service')
-const host = '0.0.0.0'
+// const host = '0.0.0.0'
 const port = process.env.PORT || 3030
-http.listen(port, host, () => {
+http.listen(port, () => {
     logger.info('Server is running on port: ' + port)
 })
