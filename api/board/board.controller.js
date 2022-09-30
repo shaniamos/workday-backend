@@ -11,6 +11,7 @@ async function getBoards(req, res) {
     // const boards = await boardService.query(queryParams)
     const filterBy = (req.query) ? req.query : null
     const boards = await boardService.query(filterBy)
+    console.log(boards)
     res.json(boards)
   } catch (err) {
     logger.error('Failed to get boards', err)
