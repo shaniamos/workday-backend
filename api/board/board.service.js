@@ -1,7 +1,6 @@
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
 const ObjectId = require('mongodb').ObjectId
-const utilService = require('../../services/util.service')
 
 async function query(filterBy) {
     try {
@@ -14,16 +13,6 @@ async function query(filterBy) {
         logger.error('cannot find boards', err)
         throw err
     }
-}
-
-function _buildCriteria(filterBy) {
-    const criteria = {}
-    if (filterBy.txt) {
-        const txtCriteria = { $regex: filterBy.txt, $options: 'i' }
-        criteria.title = txtCriteria
-        criteria.title = txtCriteria
-    }
-    return criteria
 }
 
 async function getById(boardId) {
@@ -69,6 +58,16 @@ async function update(board) {
         logger.error(`cannot update board ${boardId}`, err)
         throw err
     }
+}
+
+function _buildCriteria(filterBy) {
+    const criteria = {}
+    if (filterBy.txt) {
+        const txtCriteria = { $regex: filterBy.txt, $options: 'i' }
+        criteria.title = txtCriteria
+        criteria.title = txtCriteria
+    }
+    return criteria
 }
 
 module.exports = {
