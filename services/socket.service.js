@@ -32,7 +32,6 @@ function setupSocketAPI(http) {
             // gIo.emit('chat addMsg', msg)
             // emits only to sockets in the same room
             // popo
-            console.log(board)
             gIo.to(socket.myBoardId).emit('board-add-change', board)
         })
         socket.on('boards-send-change', boards => {
