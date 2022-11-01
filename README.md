@@ -3,7 +3,7 @@
 
 Task management board app inspired by monday.com, [Here is my project link](https://workday.onrender.com/#/).
 
-![Main board image](src/assets/imgs/main-board-img.JPG)
+![Main board image](readme-imgs/main-board-img.JPG)
 
 ___
 
@@ -73,28 +73,28 @@ That's it! The App should be opened automatically, enjoy!
 ### Homepage
 The landing page in which the user can sign up / login, or press the call to action button to start demo if he is limited with time.
 
-![Homepage image](src/assets/imgs/home-img.JPG)
+![Homepage image](readme-imgs/home-img.JPG)
 
 ### Board
 All the functionality that you have in Monday. D&D, live-updates, editing groups and tasks to the deepest level, side-menu, and much more.
 
-![Main board image](src/assets/imgs/main-board-img.JPG)
+![Main board image](readme-imgs/main-board-img.JPG)
 
 ### Kanban
 Another view of the board. It has all the functionality, including D&D.
 
-![Kanban image](src/assets/imgs/kanban-img.JPG)
+![Kanban image](readme-imgs/kanban-img.JPG)
 
 ### Signup
 We created an e2e authentication flow, including encrypting the users' details and middlewares.
 
-![signup image](src/assets/imgs/signup-img.JPG)
+![signup image](readme-imgs/signup-img.JPG)
 
 ### Some mobile!
 Just a taste of the mobile experience. We used different **mixins**, **conditional rendering**, and the **"mobile first"** approach. 
 The layout we have built from the very first moment enabled us to make the website responsive without a lot of effort.
 
-<img src="src/assets/imgs/home-mobile-img.JPG" width="25%" style="float: left"/><img src="src/assets/imgs/workspace-mobile-img.JPG" width="25%" style="float: left;"/><img src="src/assets/imgs/main-board-mobile-img.JPG" width="25%" style="float: left;"/><img src="src/assets/imgs/kanban-mobile-img.JPG" width="25%" style="float: left;"/>
+<img src="readme-imgs/home-mobile-img.JPG" width="25%" style="float: left"/><img src="readme-imgs/workspace-mobile-img.JPG" width="25%" style="float: left;"/><img src="readme-imgs/main-board-mobile-img.JPG" width="25%" style="float: left;"/><img src="readme-imgs/kanban-mobile-img.JPG" width="25%" style="float: left;"/>
 
 ### Authors
  - [Tal Elmaliach Hemo](https://github.com/TalElmaliachHemo)
