@@ -7,7 +7,7 @@ async function query(filterBy) {
         const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection('board')
         var boards = await collection.find(criteria).toArray()
-        boards = boards.map(board => ({...board , createdAt: ObjectId(`${board._id}`).getTimestamp()}))
+        boards = boards.map(board => ({ ...board, createdAt: ObjectId(`${board._id}`).getTimestamp() }))
         return boards
     } catch (err) {
         logger.error('cannot find boards', err)
@@ -41,7 +41,7 @@ async function add(board) {
     try {
         const collection = await dbService.getCollection('board')
         const addedBoard = await collection.insertOne(board)
-        return addedBoard
+        return board
     } catch (err) {
         logger.error('cannot insert board', err)
         throw err
