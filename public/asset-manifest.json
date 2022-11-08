@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3069ce04.css",
+    "main.js": "/static/js/main.3c1e86f0.js",
+    "static/media/home-img-footer.jpg": "/static/media/home-img-footer.d26d91754ebfcea18585.jpg",
+    "static/media/Roboto-Regular.ttf": "/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
+    "static/media/Roboto-Bold.ttf": "/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
+    "static/media/Sofia-Pro-Bold.otf": "/static/media/Sofia-Pro-Bold.48c71aa3dea90cd4f94e.otf",
+    "static/media/Sofia-Pro-Thin.otf": "/static/media/Sofia-Pro-Thin.d2162fc7578b0d38b109.otf",
+    "static/media/Sofia-Pro-Regular.otf": "/static/media/Sofia-Pro-Regular.d36998f5d9772461be21.otf",
+    "static/media/signup-pic.jpg": "/static/media/signup-pic.3497d91d0124a9699ac9.jpg",
+    "service-worker.js": "/service-worker.js",
+    "static/media/NoneUpdatesIcon.svg": "/static/media/NoneUpdatesIcon.8c69e2772fa1e4c679afbff7b96a0b60.svg",
+    "index.html": "/index.html",
+    "static/media/BoardNavIcon.svg": "/static/media/BoardNavIcon.3d311faf78315e5ed9b71cc9d933ac7a.svg",
+    "main.3069ce04.css.map": "/static/css/main.3069ce04.css.map",
+    "main.3c1e86f0.js.map": "/static/js/main.3c1e86f0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3069ce04.css",
+    "static/js/main.3c1e86f0.js"
+  ]
+}
