@@ -28,17 +28,11 @@ function setupSocketAPI(http) {
         })
         socket.on('board-send-change', board => {
             logger.info(`New changes to board [title: ${board.title}] from socket [id: ${socket.id}], emitting to boardId ${socket.myBoardId}`)
-            // emits to all sockets:
-            // gIo.emit('chat addMsg', msg)
-            // emits only to sockets in the same room
-            // popo
             gIo.to(socket.myBoardId).emit('board-add-change', board)
         })
         socket.on('boards-send-change', boards => {
             logger.info(`New updates to boards from socket [id: ${socket.id}], emitting to all users`)
-            // emits to all sockets:
-            gIo.emit('boards-add-change', boards) // emits only to sockets in the same room
-            // gIo.to(socket.myBoardId).emit('board-add-change', board)
+            gIo.emit('boards-add-change', boards)
         })
         socket.on('set-user-socket', userId => {
             logger.info(`Setting socket.userId = ${userId} for socket [id: ${socket.id}]`)
@@ -66,12 +60,9 @@ async function emitToUser({ type, data, userId }) {
         socket.emit(type, data)
     } else {
         logger.info(`No active socket for user: ${userId}`)
-        // _printSockets()
     }
 }
 
-// If possible, send to all sockets BUT not the current socket 
-// Optionally, broadcast to a room / to all
 async function broadcast({ type, data, room = null, userId }) {
     userId = userId?.toString()
 
@@ -98,7 +89,6 @@ async function _getUserSocket(userId) {
     return socket
 }
 async function _getAllSockets() {
-    // return all Socket instances
     const sockets = await gIo.fetchSockets()
     return sockets
 }

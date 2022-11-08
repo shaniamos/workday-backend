@@ -92,7 +92,7 @@ function timeAgo(ms = new Date()) {
         time = time.replace('ago', '')
         time += ' ago'
       }
-      return time //? time : 'Just now'
+      return time
     }
   }
 }

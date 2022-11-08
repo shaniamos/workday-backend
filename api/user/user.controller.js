@@ -16,10 +16,6 @@ async function getUser(req, res) {
 async function getUsers(req, res) {
     try {
         logger.debug('Getting users')
-        // const filterBy = {
-        //     txt: req.query?.txt || '',
-        //     minBalance: +req.query?.minBalance || 0
-        // }
         const filterBy = {}
         const users = await userService.query(filterBy)
         res.send(users)

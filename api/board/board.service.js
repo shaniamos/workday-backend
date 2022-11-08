@@ -2,11 +2,10 @@ const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
 const ObjectId = require('mongodb').ObjectId
 
-async function query(filterBy) {
+async function query() {
     try {
-        const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection('board')
-        var boards = await collection.find(criteria).toArray()
+        var boards = await collection.find().toArray()
         boards = boards.map(board => ({ ...board, createdAt: ObjectId(`${board._id}`).getTimestamp() }))
         return boards
     } catch (err) {
@@ -58,16 +57,6 @@ async function update(board) {
         logger.error(`cannot update board ${boardId}`, err)
         throw err
     }
-}
-
-function _buildCriteria(filterBy) {
-    const criteria = {}
-    if (filterBy.txt) {
-        const txtCriteria = { $regex: filterBy.txt, $options: 'i' }
-        criteria.title = txtCriteria
-        criteria.title = txtCriteria
-    }
-    return criteria
 }
 
 module.exports = {
