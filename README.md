@@ -55,7 +55,6 @@ npm i
 npm start
 ```
 
-You shuold get a console ouput that the server is up and running at port 3030.
 Enter the frontend folder and repeat the same process.
 
 ```
@@ -63,8 +62,6 @@ cd frontend
 npm i 
 npm start
 ```
-
-You shuold get a console ouput that the server is up and running at localhost:3000.
 
 That's it! The App should be opened automatically, enjoy!
 
